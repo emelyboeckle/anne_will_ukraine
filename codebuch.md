@@ -44,7 +44,7 @@ Jede Person erhält höchstens eine Kante zu einer Partei, auch wenn sie in mehr
 Eindeutige ID des Knotens  
 Gäste: Initialen von Vor- und Nachname in Kleinbuchstaben. Namenszusätze und Adelstitel wie von der oder Graf werden weggelassen, zum Beispiel ul für Ursula von der Leyen. Haben zwei Personen dieselben Initialen, wird ein weiterer Buchstabe ergänzt.  
 Folgen: Folgennummer (500, 501, 502, 503)  
-Parteien: übliches Kürzel ohne Sonderzeichen (CDU, SPD, FDP, Gruene, Linke)
+Parteien: übliches Kürzel in Kleinbuchstaben ohne Sonderzeichen (cdu, spd, fdp, gruene, linke)
 
 **name**  
 Voller Name des Gastes. Bei Folgen: Folge 500 und so weiter. Bei Parteien: Name der Partei.
