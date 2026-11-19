@@ -28,8 +28,16 @@ Fehlende Werte bleiben leer. Gäste ohne Parteizugehörigkeit erhalten keine Kan
 **from**  
 ID des Gastes (Sender der Kante)
 
+Definiert den Sender in gerichteten Netzwerken. 
+Entspricht ID in der Nodelist. 
+Keine Sonderzeichen, nur ein Wort.
+
 **to**  
 ID der Folge oder der Partei (Empfänger der Kante)
+
+Definiert den Empfänger in ungerichteten Netzwerken.
+Entspricht ID in der Nodelist. 
+Keine Sonderzeichen, etc. 
 
 **relationship**  
 Art der Beziehung  
