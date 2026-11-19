@@ -25,6 +25,9 @@ Fehlende Werte bleiben leer. Gäste ohne Parteizugehörigkeit erhalten keine Kan
 
 # EDGE-Attribute
 
+**Grundregel** 
+Die Edgelist darf pro Spalte immer nur einen Wert enthalten. Bis auf die ID idealerweise numerisch codiert (als Zahl).
+
 **from**  
 ID des Gastes (Sender der Kante)
 
