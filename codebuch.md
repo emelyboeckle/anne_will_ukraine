@@ -1,96 +1,70 @@
-Datensatz Semesterverbund CRPR2
-Codebuch Stand 2021-05 erstellt von Swaran Sandhu (sandhu@hdm-stuttgart.de)
+# Datensatz Anne Will 2022: Ukraine (Folgen 500 bis 503)
+Codebuch, Stand November 2026, erstellt von Emely Böckle im Kurs 226305 Soziale Netzwerkanalyse an der Hochschule der Medien Stuttgart
 
-Inhalt
-Edges.csv (Edgelist)
-Nodes.csv (Nodelist)
-Codebuch.md (Codierung der Datensätze)
-Ursprung und Datenerhebung
-Ich habe den Datensatz unter den Studierenden des dritten Semesters im Kurs Netzwerkanalyse erhoben. Die Daten sind nach der Erhebung nach einem Zufallsprinzip anonymisiert worden.
+## Inhalt
+- anne_will_edges.csv (Edgelist)
+- anne_will_nodes.csv (Nodelist)
+- codebuch.md (Codierung der Datensätze)
 
-Das Netzwerk ist ein gerichtetes one-mode Akteursnetzwerk. Es wurden zwei getrennte Fragen erhoben:
+## Ursprung und Datenerhebung
+Erhoben wurden alle Gäste der Talkshow Anne Will (Das Erste) aus den vier Folgen 500 bis 503. Die Folgen liefen zwischen dem 20.02.2022 und dem 13.03.2022 und behandeln den Konflikt mit Russland und den Krieg gegen die Ukraine.
 
-Projektarbeitsnetzwerk work
-1a) Bei Hochschulprojekten arbeite ich am liebsten mit folgender Person aus meinem Semester: Bitte tragen Sie das Kürzel der Person ein.
-1b) Bei Hochschulprojekten arbeite ich am auch gerne mit folgender Person aus meinem Semester: Bitte tragen Sie das Kürzel der zweiten Person ein.
+| Folge | Sendedatum |
+|---|---|
+| 500 | 20.02.2022 |
+| 501 | 27.02.2022 |
+| 502 | 06.03.2022 |
+| 503 | 13.03.2022 |
 
-Für das Zusammenarbeitsnetzwerk work wurde der Person, die zuerst genannt wurde, ein Gewicht von 3 vergeben, die zweite Person erhielt ein Gewicht von 1. Insgesamt waren 76 Beziehungsmuster möglich.
+Quelle ist der Episodenguide auf fernsehserien.de (https://www.fernsehserien.de/anne-will/episodenguide), abgerufen im November 2026. Erfasst wurden alle dort genannten Gäste. Die Moderatorin wird nicht erfasst, weil nur die Gäste untersucht werden.
 
-Unterstützungsnetzwerk help
-2a) Wenn Sie ein Problem oder eine studiengangsbezogene Frage haben, an welchen ihrer Mitstudenten aus ihrem Semester wenden Sie sich zuerst? Bitte tragen Sie auch hier wieder das Kürzel ein.
-2b) Wenn Sie ein Problem oder eine studiengangsbezogene Frage haben, an welchen ihrer Mitstudenten aus ihrem Semester wenden Sie sich als nächstes? Bitte tragen Sie auch hier wieder das Kürzel ein.
+Das Netzwerk ist ein *gerichtetes two-mode Netzwerk*. Es enthält drei Arten von Knoten: Gäste, Folgen und Parteien. Alle Kanten gehen von einem Gast aus.
 
-Für das Unterstützungsnetzwerk help wurde der Person, die zuerst genannt wurde, ein Gewicht von 3 vergeben, die zweite Person erhielt ein Gewicht von 1. Insgesamt waren 76 Beziehungsmuster möglich.
+## Umgang mit fehlenden Werten
+Fehlende Werte bleiben leer. Gäste ohne Parteizugehörigkeit erhalten keine Kante zu einer Partei.
 
-Beziehungsnetzwerk love Das Edge-Attribut complicated beschreibt drei unterschiedliche Beziehungsmuster innerhalb der Gruppe. Diese Kriterien haben kein eigenes Gewicht, sondern sind über die Art der Beziehung definiert (reziproke Paarbeziehung, tinder-Aktivität, einseitige Beziehung).
+# EDGE-Attribute
 
-EDGE-Attribute
-id
-(eindeutige Codierung des Knoten)
-codiert von 1 bis 38, jede ID entspricht einem Studenten
+**from**  
+ID des Gastes (Sender der Kante)
 
-weight
-Beziehungsstärke aufgrund der Nennung in den Fragen)
-3 = sehr starke Beziehung (erste Nennung),
-1 = starke Beziehung vorhanden (zweite Nennung)
+**to**  
+ID der Folge oder der Partei (Empfänger der Kante)
 
-relation Beziehungsart zwischen den Personen
-1 = work Projektbasierte Beziehung: Bei einem gerichteten Netzwerk präferiert der Sender (erste Spalte) die Zusammenarbeit mit der genannten Zielperson (zweite Spalte).
-2 = help Unterstützungsbeziehung: Bei einem gerichteten Netzwerk fragt der Sender (erste Spalte) die genannte Person (zweite Spalte) um Rat.
-3 = love Liebesbeziehung zwischen Akteuren, codiert nach dem Attribut complicated
+**relationship**  
+Art der Beziehung  
+1 = Gast war in dieser Folge zu Gast  
+2 = Gast gehört dieser Partei an  
 
-complicated
-1 = Beziehung (typische Paarbeziehung, d.h. reziprok zwischen beiden PartnerInnen),
-2 = Tinder-Like (hat die person rechts geswiped, muss aber nicht gegenseitig sein)
-3 = Crush (einseitig verliebt, ohne dass die Person etwas davon weiss).
+Jede Person erhält höchstens eine Kante zu einer Partei, auch wenn sie in mehreren Folgen zu Gast war.
 
-NODE-Attribute
-id
-Identische ID wie aus der edgelist zur Identifikation der Knoten. In diesem Fall sind alle personenbezogenen Daten anonymisiert von 1 bis 38.
+# NODE-Attribute
 
-name Vorname (fiktiv)
+**id**  
+Eindeutige ID des Knotens  
+Gäste: Initialen von Vor- und Nachname in Kleinbuchstaben. Namenszusätze und Adelstitel wie von der oder Graf werden weggelassen, zum Beispiel ul für Ursula von der Leyen. Haben zwei Personen dieselben Initialen, wird ein weiterer Buchstabe ergänzt.  
+Folgen: Folgennummer (500, 501, 502, 503)  
+Parteien: übliches Kürzel ohne Sonderzeichen (CDU, SPD, FDP, Gruene, Linke)
 
-name2 Vorname abgekürzt, z.B. für Visualiserung, falls der Name zu lange ist
+**name**  
+Voller Name des Gastes. Bei Folgen: Folge 500 und so weiter. Bei Parteien: Name der Partei.
 
-sex
-Bitte geben Sie ihr Geschlecht an:
-1 = weiblich
-2 = männlich
-3 = divers
+**party**  
+Parteikürzel wie bei id, laut fernsehserien.de zum Zeitpunkt der Sendung. Leer bei Parteilosen, bei Folgen und bei Parteien.
 
-crpr*
-Welche Studienrichtung haben Sie vertieft?
-1 = CR
-2 = PR
+**type**  
+Seite des two-mode Netzwerks  
+FALSE = Gast  
+TRUE = Folge oder Partei  
 
-age
-Bitte geben Sie Ihr Alter an:
-1 = bis 20 Jahre
-2 = 21 bis 22 Jahre
-3 = 23 bis 24 Jahre
-4 = 25 und älter
+**sector**  
+Bereich, in dem der Gast tätig ist. Es zählt die Rolle, in der die Person eingeladen wurde. Leer bei Folgen und Parteien.  
+Politik = Abgeordnete, Regierungsmitglieder, Parteivorsitzende, EU-Kommission, Staatsoberhäupter  
+Wissenschaft = Hochschulen, Forschungsinstitute und Think Tanks  
+Medien = Journalistinnen und Journalisten  
+Militaer = Soldaten, auch im Ruhestand  
+Diplomatie = Botschafterinnen und Botschafter  
+Kultur = Schriftstellerinnen, Schriftsteller, Künstlerinnen und Künstler  
 
-smoke
-Rauchen Sie mindestens ein Mal pro Woche?
-1 = nein
-2 = ja
-
-tatoo
-Tatoo vorhanden?
-1 = nein
-2 = ja
-
-eyes
-Welche Augenfarbe?
-1 = grün,
-2 = blau,
-3 = braun,
-4 = blau.
-
-hair
-Welche Haarfarbe?
-1 = braun,
-2 = schwarz,
-3 = blond,
-4 = rot.
-
+**country**  
+Staatsangehörigkeit des Gastes. Bei mehreren zählt die zuerst genannte. Steht sie nicht auf fernsehserien.de, wurde sie nachgeschlagen. Leer bei Folgen und Parteien.
