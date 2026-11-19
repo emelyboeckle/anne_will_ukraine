@@ -1,1 +1,29 @@
 id,name,party,type,sector,country
+ul,Ursula von der Leyen,cdu,FALSE,Politik,Deutschland
+lk,Lars Klingbeil,spd,FALSE,Politik,Deutschland
+nr,Norbert Röttgen,cdu,FALSE,Politik,Deutschland
+sw,Sahra Wagenknecht,linke,FALSE,Politik,Deutschland
+cs,Constanze Stelzenmüller,,FALSE,Wissenschaft,Deutschland
+cl,Christian Lindner,fdp,FALSE,Politik,Deutschland
+ks,Karl Schlögel,,FALSE,Wissenschaft,Deutschland
+lm,Ljudmyla Melnyk,,FALSE,Wissenschaft,Ukraine
+kd,Kristina Dunz,,FALSE,Medien,Deutschland
+el,Egils Levits,,FALSE,Politik,Lettland
+ab,Annalena Baerbock,gruene,FALSE,Politik,Deutschland
+ft,Frans Timmermans,,FALSE,Politik,Niederlande
+am,Andrij Melnyk,,FALSE,Diplomatie,Ukraine
+al,Alexander Graf Lambsdorff,fdp,FALSE,Politik,Deutschland
+er,Egon Ramms,,FALSE,Militaer,Deutschland
+rh,Robert Habeck,gruene,FALSE,Politik,Deutschland
+cm,Claudia Major,,FALSE,Wissenschaft,Deutschland
+kp,Katja Petrowskaja,,FALSE,Kultur,Deutschland
+rk,Roderich Kiesewetter,cdu,FALSE,Politik,Deutschland
+500,Folge 500,,TRUE,,
+501,Folge 501,,TRUE,,
+502,Folge 502,,TRUE,,
+503,Folge 503,,TRUE,,
+cdu,CDU,,TRUE,,
+spd,SPD,,TRUE,,
+linke,Die Linke,,TRUE,,
+fdp,FDP,,TRUE,,
+gruene,Bündnis 90/Die Grünen,,TRUE,,
